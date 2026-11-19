@@ -1,0 +1,68 @@
+package javaapplication209;
+import java.util.Scanner;
+
+public class JavaApplication209 {
+
+    
+    public static void main(String[] args) {
+
+
+
+        Scanner scanner = new Scanner(System.in);
+
+      
+        System.out.print("Enter the number of students: ");
+        int numStudents = scanner.nextInt();
+        scanner.nextLine(); 
+        while (numStudents <= 0) {
+            System.out.print("Please enter a positive number of students: ");
+            numStudents = scanner.nextInt();
+            scanner.nextLine();
+        }
+
+        student[] students = new student[numStudents];
+
+       
+        for (int i = 0; i < numStudents; i++) {
+            System.out.println("\n--- Enter details for Student " + (i + 1) + " ---");
+            System.out.print("Student ID: ");
+            String id = scanner.nextLine();
+
+            System.out.print("Student Name: ");
+            String name = scanner.nextLine();
+
+            System.out.print("Grade: ");
+            double grade = scanner.nextDouble();
+            scanner.nextLine(); 
+
+            students[i] = new student(name, id, grade);
+        }
+
+      
+        System.out.print("\nEnter the index of the student to update (0 to " + (numStudents - 1) + "): ");
+        int index = scanner.nextInt();
+
+        if (index >= 0 && index < numStudents) {
+            System.out.print("Enter the new grade: ");
+            double newGrade = scanner.nextDouble();
+            students[index].updateGrade(newGrade);
+            System.out.println("Grade updated successfully.");
+        } else {
+            System.out.println("Invalid index. No grade was updated.");
+        }
+
+       
+        System.out.println("\n=== Student Records ===");
+        for (int i = 0; i < numStudents; i++) {
+            student s = students[i];
+            String status = s.isPassed() ? "Passed" : "Failed";
+            System.out.printf("Index %d | ID: %s | Name: %s | Grade: %.2f | Status: %s%n",
+                    i, s.getStudentID(), s.getStudentName(), s.getGrade(), status);
+        }
+
+    }
+}
+    
+    
+    
+
