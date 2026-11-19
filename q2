@@ -1,0 +1,45 @@
+package javaapplication209;
+
+public class student {
+    // a) Private instance variables
+    private String studentName;
+    private String studentID;
+    private double grade;
+
+    // b) Unparameterized constructor
+    public student() {
+        this.studentName = "";
+        this.studentID = "";
+        this.grade = 0.0;
+    }
+
+    // b) Parameterized constructor
+    public student(String studentName, String studentID, double grade) {
+        this.studentName = studentName;
+        this.studentID = studentID;
+        this.grade = grade;
+    }
+
+    // c) Method to update the student's grade
+    public void updateGrade(double newGrade) {
+        this.grade = newGrade;
+    }
+
+    // d) Method to check if the student passed (>= 50)
+    public boolean isPassed() {
+        return this.grade >= 50.0;
+    }
+
+    // e) Accessor (getter) methods for all private instance variables
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public double getGrade() {
+        return grade;
+    }
+}
